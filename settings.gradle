@@ -1,0 +1,3 @@
+include ':countdown'
+include ':app'
+rootProject.name = "CountDownView"

@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="DonutProgress">
+        <item name="android:layout_width">@dimen/donut_progress_width</item>
+        <item name="android:layout_height">@dimen/donut_progress_height</item>
+        <item name="android:layout_marginLeft">@dimen/donut_progress_marginLeft</item>
+        <item name="android:layout_marginRight">@dimen/donut_progress_marginRight</item>
+    </style>
+
+    <style name="GeneralTextAppearance">
+        <item name="android:fontFamily">@font/iran_yekan_bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

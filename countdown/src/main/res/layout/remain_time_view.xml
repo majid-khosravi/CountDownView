@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ir.khosravi.countdownview.widget.DonutProgress
+            android:id="@+id/donutProgressDays"
+            style="@style/DonutProgress"
+            app:donut_max="1"
+            app:donut_suffix_text="@string/day"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/donutProgressHours"
+            app:layout_constraintTop_toTopOf="@id/donutProgressSeconds" />
+
+        <ir.khosravi.countdownview.widget.DonutProgress
+            android:id="@+id/donutProgressHours"
+            style="@style/DonutProgress"
+            app:donut_max="24"
+            app:donut_suffix_text="@string/hour"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/donutProgressDays"
+            app:layout_constraintRight_toLeftOf="@id/donutProgressMinutes"
+            app:layout_constraintTop_toTopOf="@id/donutProgressSeconds" />
+
+        <ir.khosravi.countdownview.widget.DonutProgress
+            android:id="@+id/donutProgressMinutes"
+            style="@style/DonutProgress"
+            app:donut_suffix_text="@string/minute"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/donutProgressHours"
+            app:layout_constraintRight_toLeftOf="@id/donutProgressSeconds"
+            app:layout_constraintTop_toTopOf="@id/donutProgressSeconds" />
+
+        <ir.khosravi.countdownview.widget.DonutProgress
+            android:id="@+id/donutProgressSeconds"
+            style="@style/DonutProgress"
+            app:donut_suffix_text="@string/second"
+            app:layout_constraintBottom_toTopOf="@id/text_start"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/donutProgressMinutes"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/to_start"
+            android:textAppearance="@style/GeneralTextAppearance"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/donutProgressSeconds"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+    </merge>
+</layout>
