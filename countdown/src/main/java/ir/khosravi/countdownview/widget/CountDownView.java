@@ -28,7 +28,6 @@ import ir.khosravi.countdownview.utils.TimeUtils;
 
 public class CountDownView extends ConstraintLayout {
 
-    private Context mContext;
     private String title;
     private int fontFamily;
     private float titleSize;
@@ -38,6 +37,7 @@ public class CountDownView extends ConstraintLayout {
     private RemainTimeViewBinding mBinding;
     private CountDownTimer mCountDownTimer;
     private TimerStat mTimerStatListener;
+    private TimeModel mTimeModel;
 
     public CountDownView(Context context) {
         this(context, null);
@@ -49,14 +49,13 @@ public class CountDownView extends ConstraintLayout {
 
     public CountDownView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mContext = context;
 
         title = getResources().getString(R.string.to_start);
         fontFamily = R.font.iran_yekan_bold;
         titleSize = DimenUtils.sp2px(getResources(), 16);
         progressStrokeWidth = (int) DimenUtils.dp2px(getResources(), 5);
 
-        final TypedArray typedArray = mContext.getTheme().obtainStyledAttributes(attrs, R.styleable.CountDownView, defStyleAttr, 0);
+        final TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.CountDownView, defStyleAttr, 0);
         initByAttributes(typedArray);
         typedArray.recycle();
 
@@ -64,7 +63,8 @@ public class CountDownView extends ConstraintLayout {
     }
 
     private void initByAttributes(TypedArray attributes) {
-        mBinding = DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.remain_time_view, this, true);
+        mBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.remain_time_view, this, true);
+        mBinding.setObj(mTimeModel);
         if (attributes.getString(R.styleable.CountDownView_title) != null)
             title = attributes.getString(R.styleable.CountDownView_title);
         fontFamily = attributes.getResourceId(R.styleable.CountDownView_fontFace, fontFamily);
@@ -86,7 +86,7 @@ public class CountDownView extends ConstraintLayout {
             setBackgroundImage(getResources().getDrawable(backgroundImage));
         setTitleText(title);
         setTitleSize(titleSize);
-        mBinding.textStart.setTypeface(ResourcesCompat.getFont(mContext, fontFamily));
+        mBinding.textStart.setTypeface(ResourcesCompat.getFont(getContext(), fontFamily));
     }
 
     private void setProgressAttributes(DonutProgress progress) {
@@ -102,6 +102,7 @@ public class CountDownView extends ConstraintLayout {
             mCountDownTimer.cancel();
             mCountDownTimer = null;
         }
+        mTimeModel = TimeUtils.getRemainedTime(Math.abs(Math.abs(remainTime)));
         startTimer(Math.abs(remainTime));
     }
 
@@ -113,37 +114,31 @@ public class CountDownView extends ConstraintLayout {
                     @Override
                     public void onTick(long millisUntilFinished) {
 //                        setTimerFinished(false);
-                        setVisibleProgressBars(millisUntilFinished);
+//                        setVisibleProgressBars(millisUntilFinished);
 
-                        TimeModel timeModel = TimeUtils.getRemainedTime(Math.abs(millisUntilFinished));
-                        mBinding.donutProgressDays.setProgress(timeModel.getDays());
-                        mBinding.donutProgressHours.setProgress(timeModel.getHours());
-                        mBinding.donutProgressMinutes.setProgress(timeModel.getMinutes());
-                        mBinding.donutProgressSeconds.setProgress(timeModel.getSeconds());
+                        mTimeModel = TimeUtils.getRemainedTime(Math.abs(millisUntilFinished));
+                        mBinding.setObj(mTimeModel);
+//                        mBinding.donutProgressDays.setProgress(timeModel.getDays());
+//                        mBinding.donutProgressHours.setProgress(timeModel.getHours());
+//                        mBinding.donutProgressMinutes.setProgress(timeModel.getMinutes());
+//                        mBinding.donutProgressSeconds.setProgress(timeModel.getSeconds());
                     }
 
                     @Override
                     public void onFinish() {
-                        setTimerFinished(true);
+                        setTimerFinished();
                     }
                 };
                 mCountDownTimer.start();
             }
         } else {
-            setTimerFinished(true);
+            setTimerFinished();
         }
     }
 
-    private void setTimerFinished(boolean isTimerFinished) {
+    private void setTimerFinished() {
         if (mTimerStatListener != null)
             mTimerStatListener.onTimerFinishedListener();
-    }
-
-    private void setVisibleProgressBars(long millisUntilFinished) {
-        mBinding.donutProgressDays.setVisibility(millisUntilFinished >= TimeUtils.DAY_IN_MILLIS ? View.VISIBLE : View.GONE);
-        mBinding.donutProgressHours.setVisibility(millisUntilFinished >= TimeUtils.HOUR_IN_MILLI ? View.VISIBLE : View.GONE);
-        mBinding.donutProgressMinutes.setVisibility(millisUntilFinished >= TimeUtils.MINUTE_IN_MILLI ? View.VISIBLE : View.GONE);
-        mBinding.donutProgressSeconds.setVisibility(millisUntilFinished >= TimeUtils.SECOND_IN_MILLI ? View.VISIBLE : View.GONE);
     }
 
     public void setBackgroundImage(Drawable imageRes) {
