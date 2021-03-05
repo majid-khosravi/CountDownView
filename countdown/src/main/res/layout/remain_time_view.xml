@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="obj"
+            type="ir.khosravi.countdownview.model.TimeModel" />
+    </data>
 
     <merge
         android:layout_width="match_parent"
@@ -16,6 +23,7 @@
             android:id="@+id/donutProgressDays"
             style="@style/DonutProgress"
             app:donut_max="1"
+            app:progress="@{obj}"
             app:donut_suffix_text="@string/day"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -26,6 +34,7 @@
             android:id="@+id/donutProgressHours"
             style="@style/DonutProgress"
             app:donut_max="24"
+            app:progress="@{obj}"
             app:donut_suffix_text="@string/hour"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toRightOf="@id/donutProgressDays"
@@ -36,6 +45,7 @@
             android:id="@+id/donutProgressMinutes"
             style="@style/DonutProgress"
             app:donut_suffix_text="@string/minute"
+            app:progress="@{obj}"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toRightOf="@id/donutProgressHours"
             app:layout_constraintRight_toLeftOf="@id/donutProgressSeconds"
@@ -45,6 +55,7 @@
             android:id="@+id/donutProgressSeconds"
             style="@style/DonutProgress"
             app:donut_suffix_text="@string/second"
+            app:progress="@{obj}"
             app:layout_constraintBottom_toTopOf="@id/text_start"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toRightOf="@id/donutProgressMinutes"
