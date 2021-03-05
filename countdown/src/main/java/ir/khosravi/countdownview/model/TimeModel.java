@@ -7,12 +7,14 @@ package ir.khosravi.countdownview.model;
 
 public class TimeModel {
 
+    private long milliSeconds;
     private float days;
     private float hours;
     private float minutes;
     private float seconds;
 
-    public TimeModel(float days, float hours, float minutes, float seconds) {
+    public TimeModel(long milliSeconds,float days, float hours, float minutes, float seconds) {
+        this.milliSeconds = milliSeconds;
         this.days = days;
         this.hours = hours;
         this.minutes = minutes;
@@ -33,5 +35,9 @@ public class TimeModel {
 
     public float getSeconds() {
         return seconds;
+    }
+
+    public long getMilliSeconds() {
+        return milliSeconds;
     }
 }
