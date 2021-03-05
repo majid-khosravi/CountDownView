@@ -21,7 +21,7 @@ public class TimeUtils {
         long minutes = seconds / 60;
         long hours = minutes / 60;
         long days = hours / 24;
-        return new TimeModel(days, hours % 24, minutes % 60, seconds % 60);
+        return new TimeModel(milliSeconds, days, hours % 24, minutes % 60, seconds % 60);
     }
 
     public static int getMaxDay(long milliSeconds) {
