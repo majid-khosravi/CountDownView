@@ -5,9 +5,12 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ir.khosravi.countdownview.utils.TimeUtils;
 import ir.khosravi.countdownview.widget.CountDownView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final long THREE_MINUTE_IN_MILLIS = TimeUtils.MINUTE_IN_MILLI + TimeUtils.SECOND_IN_MILLI * 30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         CountDownView countDownView = findViewById(R.id.count_down);
-        countDownView.setTimes(System.currentTimeMillis(), System.currentTimeMillis() + 360000, new CountDownView.TimerStat() {
+        countDownView.setTimes(System.currentTimeMillis(), System.currentTimeMillis() + THREE_MINUTE_IN_MILLIS, new CountDownView.TimerStat() {
             @Override
             public void onTimerFinishedListener() {
 
