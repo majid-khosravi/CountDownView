@@ -151,8 +151,8 @@ public class CountDownView extends ConstraintLayout implements BaseCountDown {
     private void initByAttributes(TypedArray attributes) {
         mBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.remain_time_view, this, true);
         mTitleResId = attributes.getResourceId(R.styleable.CountDownView_title, R.string.to_start);
-        mFontResId = attributes.getResourceId(R.styleable.CountDownView_fontFace, R.font.iran_yekan_bold);
         mTitleSizeResId = attributes.getResourceId(R.styleable.CountDownView_titleSize, R.dimen.text_title_size_large);
+        mFontResId = attributes.getResourceId(R.styleable.CountDownView_fontFace, R.font.iran_yekan_bold);
         mBackgroundImage = attributes.getResourceId(R.styleable.CountDownView_backgroundImage, INVALID_VALUE);
         mProgressStrokeWidthResId = attributes.getResourceId(R.styleable.CountDownView_progressStrokeWidth, R.dimen.donut_progress_stroke_width);
         mBinding.setObj(mTimeModel);
