@@ -1,5 +1,15 @@
 <resources>
 
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
     <style name="DonutProgress">
         <item name="android:layout_width">@dimen/donut_progress_width</item>
         <item name="android:layout_height">@dimen/donut_progress_height</item>
@@ -10,6 +20,24 @@
     <style name="GeneralTextAppearance">
         <item name="android:fontFamily">@font/iran_yekan_bold</item>
         <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTextButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textDirection">rtl</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="iconPadding">@dimen/spacing_micro</item>
+        <item name="iconTint">@null</item>
+        <item name="fontFamily">@font/iran_yekan_bold</item>
+        <item name="android:drawablePadding">@dimen/spacing_normal</item>
+        <item name="android:textSize">@dimen/text_small_dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/app_button_green_bg</item>
     </style>
 
 </resources>

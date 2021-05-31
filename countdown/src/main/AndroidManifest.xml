@@ -3,6 +3,8 @@
     package="ir.khosravi.countdownview">
 
     <application
+        android:theme="@style/AppTheme"
+        android:supportsRtl="true"
         android:label="@string/app_name"/>
 
 </manifest>

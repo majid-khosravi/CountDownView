@@ -4,5 +4,7 @@
     <string name="hour">ساعت</string>
     <string name="minute">دقیقه</string>
     <string name="second">ثانیه</string>
-    <string name="to_start">تا شروع</string>
+    <string name="text_title">تا شروع</string>
+    <string name="text_message">برای تماشای این برنامه نیاز به خرید اشتراک دارید</string>
+    <string name="button_buy_subscription">خرید اشتراک</string>
 </resources>
