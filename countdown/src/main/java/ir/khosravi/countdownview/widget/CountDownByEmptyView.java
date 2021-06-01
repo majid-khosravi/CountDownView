@@ -16,11 +16,14 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.annotation.IntDef;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import ir.khosravi.countdownview.R;
 import ir.khosravi.countdownview.databinding.RemainTimeByEmptyViewBinding;
 import ir.khosravi.countdownview.model.TimeModel;
@@ -195,6 +198,31 @@ public class CountDownByEmptyView extends ConstraintLayout implements BaseCountD
     public void setTitleSize(float size) {
         mBinding.textStart.setTextSize(size);
     }
+
+    public void setMode(@Mode int mode){
+        switch (mode){
+            case  Modes.SIMPLE:
+                mBinding.textStart.setVisibility(VISIBLE);
+                mBinding.button.setVisibility(GONE);
+                mBinding.textMessage.setVisibility(GONE);
+                break;
+            case  Modes.BY_MESSAGE_BUTTON:
+                mBinding.textStart.setVisibility(VISIBLE);
+                mBinding.button.setVisibility(VISIBLE);
+                mBinding.textMessage.setVisibility(VISIBLE);
+                break;
+        }
+    }
+
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({Modes.SIMPLE, Modes.BY_MESSAGE_BUTTON})
+        public @interface Mode{}
+
+
+        public static class Modes{
+            public static final int SIMPLE = 728;
+            public static final int BY_MESSAGE_BUTTON = 729;
+        }
 
 
     @Override
