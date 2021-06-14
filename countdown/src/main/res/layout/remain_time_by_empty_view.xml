@@ -19,6 +19,13 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop" />
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#99000000" />
+
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_start"
             android:layout_width="wrap_content"
