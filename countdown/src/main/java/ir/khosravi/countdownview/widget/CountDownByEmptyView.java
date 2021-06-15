@@ -18,6 +18,7 @@ import android.view.View;
 
 import androidx.annotation.IntDef;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
@@ -183,12 +184,19 @@ public class CountDownByEmptyView extends ConstraintLayout implements BaseCountD
         return mBinding.imageBackground;
     }
 
+    public AppCompatTextView getMessageTextView(){ return  mBinding.textMessage; }
+
     public void setTitleText(String text) {
         mBinding.textStart.setText(text);
     }
 
     public void setMessageText(String text) {
-        mBinding.textMessage.setText(text);
+        if(text == null || text.isEmpty())
+            mBinding.textMessage.setVisibility(GONE);
+        else {
+            mBinding.textMessage.setVisibility(VISIBLE);
+            mBinding.textMessage.setText(text);
+        }
     }
 
     public void setButtonText(String text) {
