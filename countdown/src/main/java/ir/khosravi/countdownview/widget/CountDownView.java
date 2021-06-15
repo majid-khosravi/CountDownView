@@ -76,7 +76,7 @@ public class CountDownView extends ConstraintLayout {
     }
 
     private void initViews() {
-        setBackgroundColor(Color.rgb(200, 200, 200));
+//        setBackgroundColor(Color.rgb(200, 200, 200));
 
         setProgressAttributes(mBinding.donutProgressDays);
         setProgressAttributes(mBinding.donutProgressHours);

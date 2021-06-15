@@ -89,13 +89,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_message"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/text_message"
+            android:text="برای تماشای این برنامه نیاز به خرید اشتراک داریدبرای تماشای این برنامه نیاز به خرید اشتراک داریدبرای تماشای این برنامه نیاز به خرید اشتراک داریدبرای تماشای این برنامه نیاز به خرید اشتراک دارید"
             android:textAppearance="@style/GeneralTextAppearance"
             android:layout_marginTop="@dimen/spacing_tiny"
             android:textSize="14dp"
+            android:gravity="center"
             android:maxLines="2"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
