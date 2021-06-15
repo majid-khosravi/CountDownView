@@ -174,6 +174,7 @@ public class CountDownByEmptyView extends ConstraintLayout implements BaseCountD
         mBinding.donutProgressHours.setVisibility(millisUntilFinished >= TimeUtils.HOUR_IN_MILLI ? View.VISIBLE : View.GONE);
         mBinding.donutProgressMinutes.setVisibility(millisUntilFinished >= TimeUtils.MINUTE_IN_MILLI ? View.VISIBLE : View.GONE);
         mBinding.donutProgressSeconds.setVisibility(millisUntilFinished >= TimeUtils.SECOND_IN_MILLI ? View.VISIBLE : View.GONE);
+        mBinding.textStart.setVisibility(millisUntilFinished >= TimeUtils.SECOND_IN_MILLI ? View.VISIBLE : View.GONE);
     }
 
     public void setBackgroundImage(Drawable imageRes) {
