@@ -117,7 +117,7 @@ public class DonutProgress extends View {
     public DonutProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        default_text_size = DimenUtils.sp2px(getResources(), 52);
+        default_text_size = DimenUtils.dp2px(getResources(), 14);
         min_size = (int) DimenUtils.dp2px(getResources(), 100);
         default_stroke_width = DimenUtils.dp2px(getResources(), 5);
         default_inner_bottom_text_size = DimenUtils.sp2px(getResources(), 18);
@@ -132,7 +132,7 @@ public class DonutProgress extends View {
 
     protected void initPainters() {
         if (showText) {
-            int textSizeMeasured = (int) (getWidth() / 2.5);
+            int textSizeMeasured = (int) (getWidth() / 3.2);
 
             textPaint = new TextPaint();
             textPaint.setColor(textColor);
@@ -146,7 +146,7 @@ public class DonutProgress extends View {
 
             suffixPaint = new TextPaint();
             suffixPaint.setColor(textColor);
-            suffixPaint.setTextSize((float) (textSizeMeasured / 2.8));
+            suffixPaint.setTextSize((float) (textSizeMeasured / 1.9));
             suffixPaint.setAntiAlias(true);
 
             innerBottomTextPaint = new TextPaint();

@@ -64,7 +64,7 @@ public class CountDownByEmptyView extends ConstraintLayout implements BaseCountD
         buttonText = getResources().getString(R.string.button_buy_subscription);
         fontFamily = R.font.iran_yekan_bold;
         titleSize = DimenUtils.dp2px(getResources(), 14);
-        progressStrokeWidth = (int) DimenUtils.dp2px(getResources(), 5);
+        progressStrokeWidth = (int) DimenUtils.dp2px(getResources(), 4);
 
         final TypedArray typedArray = mContext.getTheme().obtainStyledAttributes(attrs, R.styleable.CountDownView, defStyleAttr, 0);
         initByAttributes(typedArray);
