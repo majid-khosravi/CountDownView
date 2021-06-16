@@ -192,12 +192,7 @@ public class CountDownByEmptyView extends ConstraintLayout implements BaseCountD
     }
 
     public void setMessageText(String text) {
-        if(text == null || text.isEmpty())
-            mBinding.textMessage.setVisibility(GONE);
-        else {
-            mBinding.textMessage.setVisibility(VISIBLE);
-            mBinding.textMessage.setText(text);
-        }
+        mBinding.textMessage.setText(text);
     }
 
     public void setButtonText(String text) {
